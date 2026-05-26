@@ -11,11 +11,11 @@ I found a real problem that no one has solved affordably.
 2. **Manual review takes forever.** Landlords eyeball PDFs. Non-QM loan officers spend 30–60 minutes per statement set. They're not financial analysts — they're guessing.
 
 **Existing solutions don't serve small operators:**
-- **Plaid LendScore** — requires Plaid Link integration. Doesn't accept PDF uploads.
-- **Inscribe** — detects fraud but doesn't analyze cashflow. Enterprise pricing.
-- **Ocrolus** — does both but costs $5K+/year and users report slow processing.
+- **Plaid LendScore** - requires Plaid Link integration. Doesn't accept PDF uploads.
+- **Inscribe** - detects fraud but doesn't analyze cashflow. Enterprise pricing.
+- **Ocrolus** - does both but costs $5K+/year and users report slow processing.
 
-**Nobody built an affordable, fast API combining fraud detection + cashflow intelligence for PDF bank statements.** That's the gap. That's what StatementIQ fills — at $0.02 per document instead of $5,000/year.
+**Nobody built an affordable, fast API combining fraud detection + cashflow intelligence for PDF bank statements.** That's the gap. That's what StatementIQ fills - at $0.02 per document instead of $5,000/year.
 
 ---
 
@@ -30,7 +30,7 @@ The problem wasn't found by Googling. It was found by understanding who receives
 I researched Plaid, Inscribe, Ocrolus, DocuClipper, and Veryfi. Each has a gap. StatementIQ isn't better than Inscribe — it's Inscribe for the 90% who can't afford enterprise pricing. That's a product positioning decision, not a technical one.
 
 **3. Architecture Decisions → Where AI Helps and Where It Hurts**
-The most important PM decision in this project was choosing where to use AI and where NOT to. I chose a hybrid approach: 70% rules-based (metadata forensics, balance math, regex parsing) and 30% AI (Claude Vision for scanned documents, Claude for memo generation). The AI never makes the final fraud decision. The rules do. The AI reads documents and writes English — tasks where deterministic logic fails.
+The most important PM decision in this project was choosing where to use AI and where NOT to. I chose a hybrid approach: 70% rules-based (metadata forensics, balance math, regex parsing) and 30% AI (Claude Vision for scanned documents, Claude for memo generation). The AI never makes the final fraud decision. The rules do. The AI reads documents and writes English - tasks where deterministic logic fails.
 
 This matters because at any AI company, PMs must decide where AI creates genuine value versus where it introduces unnecessary risk. A PM who puts AI everywhere is as dangerous as one who avoids it entirely.
 
